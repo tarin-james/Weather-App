@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+header {
+    background-color: #c4ecf5;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+}
+
+header p {
+    padding: 3px;
+    margin: 0;
+}
+
+header h1 {
+    padding: 5px;
+    margin: 0;
+}
+
+main {
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+}
+
+#submit {
+    margin: 10px;
+    font-size: larger;
+    border-radius: 5px;
+    background-color: #f7c9d4;
+    border: 1px solid;
+}
+
+#lat {
+    margin: 10px;
+    font-size: larger;
+}
+
+#lon {
+    margin: 10px;
+    font-size: larger;
+}
+
+#current-weather-section {
+    text-align: center;
+    font-size: larger;
+}
+
+#forecast {
+    text-align: center;
+    font-size: larger;
+}
+
+#city {
+    background-color:  #f7c9d4;
+    border-radius: 5px;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+#forecast-title {
+    background-color:  #f7c9d4;
+    border-radius: 5px;
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+button {
+    font-family: "Raleway", sans-serif;
+    font-size: x-large;
+    background-color: #c4ecf5;
+    border-radius: 5px;
+    border: 1px solid;
+}
