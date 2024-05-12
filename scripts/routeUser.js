@@ -1,4 +1,5 @@
 function submitPlace(event) {
+    // This function adds the latitude and longitude into the url of the weatherurl.html page
     event.preventDefault();
     const form = document.querySelector('#weather-form');
     const isValid = form.checkValidity();

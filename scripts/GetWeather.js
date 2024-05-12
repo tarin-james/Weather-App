@@ -1,3 +1,4 @@
+// All of the variables needed
 const urlParams = new URLSearchParams(window.location.search);
 const latitude = urlParams.get("lat");
 const longitude = urlParams.get("lon");
@@ -13,7 +14,7 @@ const currentWeatherContainer = document.querySelector('#current-weather-section
 const cityName = document.querySelector("#city");
 
 getCurrentWeather(weatherurl).then((currentWeatherResponse) => {
-
+//runs the program 
   displayResults(currentWeatherResponse);
   getForecast(forecast).then((forecastResponse) => {
     displayForecast(forecastResponse);
@@ -21,7 +22,10 @@ getCurrentWeather(weatherurl).then((currentWeatherResponse) => {
   })
 
 });
+
+
 async function getCurrentWeather(weatherurl) {
+  //Gathers the data for the current weather
     try {
       const response = await fetch(weatherurl);
       if (response.ok) {
@@ -36,6 +40,7 @@ async function getCurrentWeather(weatherurl) {
   }
 
   async function getForecast(forecast) {
+    //Gathers data for the forecasted weather
     try {
         const response = await fetch(forecast);
         if (response.ok) {
@@ -56,6 +61,7 @@ async function getCurrentWeather(weatherurl) {
 }
 
 function displayForecast(filteredForecast) {
+  //displays/creates the elements that the forecast data will be shown with
   filteredForecast?.forEach((day) => {
     const data = day;
     forecastTemp.innerHTML += `${data.main.temp}&deg;F`;
@@ -70,6 +76,7 @@ function displayForecast(filteredForecast) {
 }
 
 function displayResults(data) {
+  //displays/creates the elements that the current weather data will be shown with
   cityName.textContent += data.name ? `${data.name}` : ''; 
   currentHigh.innerHTML += data.main?.temp_max ? `${data.main?.temp_max}&deg;F` : '';
   currentTemp.innerHTML += data.main?.temp ? `${data.main?.temp}&deg;F`: '';
