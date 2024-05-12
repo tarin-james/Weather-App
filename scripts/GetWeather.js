@@ -13,7 +13,7 @@ const currentWeatherContainer = document.querySelector('#current-weather-section
 const cityName = document.querySelector("#city");
 
 getCurrentWeather(weatherurl).then((currentWeatherResponse) => {
-  console.log(currentWeatherResponse)
+
   displayResults(currentWeatherResponse);
   getForecast(forecast).then((forecastResponse) => {
     displayForecast(forecastResponse);
@@ -30,7 +30,7 @@ async function getCurrentWeather(weatherurl) {
         throw Error(await response.text());
       }
     } catch (error) {
-      console.log(error);
+      return {};
     }
     
   }
@@ -50,15 +50,14 @@ async function getCurrentWeather(weatherurl) {
         throw Error(await response.text());
         }
     } catch (error) {
-      console.log(error);
+      return [];
     }
  
 }
 
 function displayForecast(filteredForecast) {
-  filteredForecast.forEach((day) => {
+  filteredForecast?.forEach((day) => {
     const data = day;
-    
     forecastTemp.innerHTML += `${data.main.temp}&deg;F`;
     forecastHumidity.innerHTML += `${data.main.humidity}%`;
     const iconsrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
@@ -67,20 +66,20 @@ function displayForecast(filteredForecast) {
     forecastIcon.alt = 'Forecast Icon';
     forcastContainer.appendChild(forecastIcon);
   });
-  console.log(filteredForecast);
+
 }
 
 function displayResults(data) {
-  cityName.textContent += `${data.name}`; 
-  currentHigh.innerHTML += `${data.main.temp_max}&deg;F`;
-  currentTemp.innerHTML += `${data.main.temp}&deg;F`;
-  currentHumidity.innerHTML += `${data.main.humidity}%`;
-  const iconsrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+  cityName.textContent += data.name ? `${data.name}` : ''; 
+  currentHigh.innerHTML += data.main?.temp_max ? `${data.main?.temp_max}&deg;F` : '';
+  currentTemp.innerHTML += data.main?.temp ? `${data.main?.temp}&deg;F`: '';
+  currentHumidity.innerHTML += data.main?.humidity ? `${data.main?.humidity}%` : '';
+  const iconsrc = `https://openweathermap.org/img/w/${data.weather?.[0].icon}.png`;
   const currentIcon = document.createElement('img');
   currentIcon.src = iconsrc;
   currentIcon.alt = 'Current Weather Icon';
   currentWeatherContainer.appendChild(currentIcon);
-  console.log(data);
+
 }
 
 

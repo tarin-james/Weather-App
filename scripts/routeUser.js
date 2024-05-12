@@ -8,5 +8,4 @@ function submitPlace(event) {
         const lon = document.querySelector('#lon').value;
         window.location = `${window.location.origin}/weather.html?lat=${lat}&lon=${lon}`;
     }
-
 }
